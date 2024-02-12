@@ -1,0 +1,38 @@
+---
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+import RakeLogo from "../images/RakeLogo.webp";
+---
+
+<nav
+  class="fixed left-0 top-0 z-50 h-24 w-lvw bg-gray-100 bg-opacity-50 py-4 shadow-md backdrop-blur-md md:h-44"
+  data-aos="fade-up"
+  data-aos-delay="0"
+>
+  <div class="items-cent er container mx-auto
+    flex justify-between px-4">
+    <!-- Logo and Website Name -->
+    <div class="flex items-center transition-transform hover:scale-110">
+      <Image class="mr-2 h-16 w-16 md:h-32 md:w-32" src={RakeLogo} alt="" />
+      <a
+        class="ml-2 font-bold text-black text-lg md:text-4xl"
+        href="https://rake-engine.netlify.app">Rake Engine</a
+      >
+    </div>
+    <!-- Links -->
+    <div class="flex items-center space-x-4">
+      <a
+        href="https://rake-engine-docs.netlify.app/docs"
+        class="flex transform flex-row items-center text-red-400 transition-transform text-sm hover:scale-110 hover:font-bold hover:text-red-600 hover:underline md:text-lg"
+        target="_blank"
+        >Docs <Icon class="ml-1 mr-3 select-none" name="mdi:book" /></a
+      >
+      <a
+        href="https://rake-engine-docs.netlify.app/api-reference"
+        class="flex transform flex-row items-center text-red-400 transition-transform text-sm hover:scale-110 hover:font-bold hover:text-red-600 hover:underline md:text-lg"
+        target="_blank"
+        >API Reference <Icon class="ml-1 mr-3 select-none" name="mdi:code" /></a
+      >
+    </div>
+  </div>
+</nav>

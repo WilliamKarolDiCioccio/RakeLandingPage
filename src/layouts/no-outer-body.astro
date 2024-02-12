@@ -1,0 +1,14 @@
+---
+import Head from '~/components/head.astro';
+const { pageTitle } = Astro.props;
+const { pageDescription } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <Head title={pageTitle} description={pageDescription} />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

@@ -1,0 +1,55 @@
+---
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+import RakeScreenshot from "../images/RakeScreenshot.webp";
+---
+
+<div
+  class="w-lvh mt-4 flex flex-col items-center md:mt-8"
+  data-aos="fade-up"
+  data-aos-delay="250"
+>
+  <div class="m-12">
+    <Image
+      class="h-52 w-auto select-none rounded-xl shadow-xl transition-transform hover:scale-105 hover:shadow-2xl md:h-96"
+      src={RakeScreenshot}
+      alt="screenshot"
+    />
+    <p class="mt-6 text-center italic text-gray-400">
+      A screenshot of a test scene from Rake Engine
+    </p>
+  </div>
+  <a
+    href="https://github.com/WilliamKarolDiCioccio/Rake/releases"
+    target="_blank"
+    referrerpolicy="no-referrer"
+  >
+    <button
+      class="flex h-12 flex-row items-center rounded-lg bg-gradient-to-t from-red-500 to-orange-500 text-white shadow-lg shadow-orange-500/50 transition-transform text-lg hover:scale-110"
+    >
+      <span class="ml-3 mr-1">Download</span>
+      <Icon class="ml-1 mr-1 select-none" name="mdi:download" />
+      <span
+        class="ml-1 mr-3 inline-flex items-center justify-center rounded-full bg-red-600 px-2 py-1 font-bold leading-none text-white text-xs"
+        >Unavailable</span
+      >
+    </button>
+    <br />
+  </a>
+  <a
+    href="https://github.com/WilliamKarolDiCioccio/Rake.git"
+    target="_blank"
+    referrerpolicy="no-referrer"
+  >
+    <button
+      class="flex h-12 flex-row items-center rounded-lg bg-gradient-to-t from-blue-500 to-cyan-500 text-white shadow-lg shadow-cyan-500/50 transition-transform text-lg hover:scale-110"
+    >
+      <span class="ml-3 mr-1">Clone Source</span>
+      <Icon class="ml-1 mr-1 select-none" name="mdi:file" />
+      <span
+        class="ml-1 mr-3 inline-flex items-center justify-center rounded-full bg-green-600 px-2 py-1 font-bold leading-none text-white text-xs"
+        >Available</span
+      >
+    </button></a
+  >
+</div>

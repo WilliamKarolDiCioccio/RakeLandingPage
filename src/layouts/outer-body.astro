@@ -1,0 +1,27 @@
+---
+import Head from '~/components/head.astro';
+import Navbar from '~/components/navbar.astro';
+import Footer from '~/components/footer.astro';
+const { pageTitle } = Astro.props;
+const { pageDescription } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <Head title={pageTitle} description={pageDescription} />
+  </head>
+  <body>
+    <Navbar />
+    <div class="h-24 md:h-44">
+      <span></span>
+    </div>
+    <slot />
+    <Footer />
+
+    <!-- Animate On Scroll -->
+    <script is:inline src="https://unpkg.com/aos@next/dist/aos.js" crossorigin="anonymous"></script>
+    <script is:inline>
+      AOS.init();
+    </script>
+  </body>
+</html>

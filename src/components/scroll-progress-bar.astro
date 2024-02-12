@@ -1,0 +1,40 @@
+---
+
+---
+
+<style scoped>
+  .scroll-progress[value]::-webkit-progress-value {
+    background-image:
+      -webkit-linear-gradient(
+        -45deg,
+        transparent 33%,
+        rgba(0, 0, 0, 0.1) 33%,
+        rgba(0, 0, 0, 0.1) 66%,
+        transparent 66%
+      ),
+      -webkit-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.25)),
+      -webkit-linear-gradient(left, #dc2626, #f97316);
+
+    border-radius: 2px;
+    background-size:
+      35px 20px,
+      100% 100%,
+      100% 100%;
+  }
+</style>
+
+<progress
+  class="scroll-progress fixed left-0 top-0 z-50 h-3 w-full bg-transparent"
+  id="scrollProgress"
+  value="0"
+  max="100"></progress>
+
+<script>
+  window.addEventListener("scroll", () => {
+    const scrollPercent =
+      (window.scrollY /
+        (document.documentElement.scrollHeight - window.innerHeight)) *
+      100;
+    document.getElementById("scrollProgress").value = scrollPercent;
+  });
+</script>
