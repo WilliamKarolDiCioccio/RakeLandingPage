@@ -13,5 +13,7 @@ export default defineConfig({
     plugins: [Icons({
       compiler: 'astro'
     })]
-  }
+  },
+  compressHTML: true,
+  site: "https://rake-engine.netlify.app"
 });
