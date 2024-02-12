@@ -7,7 +7,7 @@ const { pageDescription } = Astro.props;
 const lang = getLangFromUrl(Astro.url);
 ---
 
-<html lang={lang}>
+<html lang={lang} translate="no">
   <head>
     <Head title={pageTitle} description={pageDescription} />
   </head>
