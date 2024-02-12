@@ -1,9 +1,18 @@
 ---
 import { Icon } from "astro-icon/components";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import LanguagePicker from '../components/language-picker.astro';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <div class="w-lvh mb-4 mt-4 flex flex-col items-center md:mb-8 md:mt-8">
-  <h2 class="text-center font-bold text-black">Connect With Us:</h2>
+  <br>
+  <h2 class="text-center font-bold text-black">{t("footer.ChooseLanguage")}:</h2>
+  <LanguagePicker />
+  <br>
+  <h2 class="text-center font-bold text-black">{t("footer.ConnectWithUs")}:</h2>
   <div class="mt-6 flex flex-row items-center justify-center">
     <a
       href="https://github.com/WilliamKarolDiCioccio/Rake.git"
@@ -44,7 +53,7 @@ import { Icon } from "astro-icon/components";
     >
   </div>
   <br />
-  <h2 class="text-center font-bold text-black">Our Tech Stack:</h2>
+  <h2 class="text-center font-bold text-black">{t("footer.OurTechStack")}:</h2>
   <div class="mt-6 flex flex-row items-center justify-center">
     <a href="https://astro.build" target="_blank" referrerpolicy="no-referrer">
       <Icon
@@ -77,7 +86,13 @@ import { Icon } from "astro-icon/components";
   </h2>
   <br />
   <h3 class="text-center text-gray-400">
-    Check out our <a class="text-blue-600 underline" href="/cookie-policy">Cookie Policy</a> and
-    <a class="text-blue-600 underline" href="/privacy-policy">Privacy Policy</a>.
+    Check out our <a
+      class="text-blue-600 underline"
+      href="href={`/${lang}/cookie-policy/`}">Cookie Policy</a
+    > and
+    <a class="text-blue-600 underline" href={`/${lang}/privacy-policy/`}
+      >Privacy Policy</a
+    >.
   </h3>
+  <br>
 </div>

@@ -29,12 +29,15 @@
   value="0"
   max="100"></progress>
 
-<script>
+<script lang="ts">
   window.addEventListener("scroll", () => {
-    const scrollPercent =
-      (window.scrollY /
-        (document.documentElement.scrollHeight - window.innerHeight)) *
-      100;
-    document.getElementById("scrollProgress").value = scrollPercent;
+    const element = document.getElementById("scrollProgress");
+    if (element) {
+      const scrollPercent =
+        (window.scrollY /
+          (document.documentElement.scrollHeight - window.innerHeight)) *
+        100;
+      element.value = scrollPercent;
+    }
   });
 </script>

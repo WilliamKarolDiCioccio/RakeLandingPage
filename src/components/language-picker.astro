@@ -1,0 +1,15 @@
+---
+import { languages } from "../i18n/ui";
+---
+
+<ul class="flex flex-row justify-center">
+  {
+    Object.entries(languages).map(([lang, label]) => (
+      <li class="ml-3 mr-3">
+        <a class="text-blue-400 underline" href={`/${lang}/`}>
+          {label}
+        </a>
+      </li>
+    ))
+  }
+</ul>

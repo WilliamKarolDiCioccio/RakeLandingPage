@@ -2,6 +2,10 @@
 import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 import RakeScreenshot from "../images/RakeScreenshot.webp";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <div
@@ -27,11 +31,11 @@ import RakeScreenshot from "../images/RakeScreenshot.webp";
     <button
       class="flex h-12 flex-row items-center rounded-lg bg-gradient-to-t from-red-500 to-orange-500 text-white shadow-lg shadow-orange-500/50 transition-transform text-lg hover:scale-110"
     >
-      <span class="ml-3 mr-1">Download</span>
+      <span class="ml-3 mr-1">{t("splash.Download")}</span>
       <Icon class="ml-1 mr-1 select-none" name="mdi:download" />
       <span
         class="ml-1 mr-3 inline-flex items-center justify-center rounded-full bg-red-600 px-2 py-1 font-bold leading-none text-white text-xs"
-        >Unavailable</span
+        >{t("common.Unavailable")}</span
       >
     </button>
     <br />
@@ -44,11 +48,11 @@ import RakeScreenshot from "../images/RakeScreenshot.webp";
     <button
       class="flex h-12 flex-row items-center rounded-lg bg-gradient-to-t from-blue-500 to-cyan-500 text-white shadow-lg shadow-cyan-500/50 transition-transform text-lg hover:scale-110"
     >
-      <span class="ml-3 mr-1">Clone Source</span>
+      <span class="ml-3 mr-1">{t("splash.CloneSource")}</span>
       <Icon class="ml-1 mr-1 select-none" name="mdi:file" />
       <span
         class="ml-1 mr-3 inline-flex items-center justify-center rounded-full bg-green-600 px-2 py-1 font-bold leading-none text-white text-xs"
-        >Available</span
+        >{t("common.Available")}</span
       >
     </button></a
   >
