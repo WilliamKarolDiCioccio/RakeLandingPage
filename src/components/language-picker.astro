@@ -1,15 +1,24 @@
 ---
 import { languages } from "../i18n/ui";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
-<ul class="flex flex-row justify-center">
-  {
-    Object.entries(languages).map(([lang, label]) => (
-      <li class="ml-3 mr-3">
-        <a class="text-blue-400 underline" href={`/${lang}/`}>
-          {label}
-        </a>
-      </li>
-    ))
-  }
-</ul>
+<div class="flex flex-row items-center">
+  <h2 class="mr-1 text-center font-bold">
+    {t("footer.ChooseLanguage")}:
+  </h2>
+  <ul class="ml-1 flex flex-row justify-center">
+    {
+      Object.entries(languages).map(([lang, label]) => (
+        <li class="ml-3 mr-3">
+          <a class="text-blue-400 underline" href={`/${lang}/`}>
+            {label}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</div>

@@ -1,18 +1,20 @@
 ---
 import { Icon } from "astro-icon/components";
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
-import LanguagePicker from '../components/language-picker.astro';
+import LanguagePicker from "../components/language-picker.astro";
+import ThemeToggle from "../components/theme-toggle.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<div class="w-lvh mb-4 mt-4 flex flex-col items-center md:mb-8 md:mt-8">
-  <br>
-  <h2 class="text-center font-bold text-black">{t("footer.ChooseLanguage")}:</h2>
+<footer class="w-lvh mb-4 mt-4 flex flex-col items-center md:mb-8 md:mt-8">
+  <br />
   <LanguagePicker />
-  <br>
-  <h2 class="text-center font-bold text-black">{t("footer.ConnectWithUs")}:</h2>
+  <br />
+  <ThemeToggle />
+  <br />
+  <h2 class="text-center font-bold">{t("footer.ConnectWithUs")}:</h2>
   <div class="mt-6 flex flex-row items-center justify-center">
     <a
       href="https://github.com/WilliamKarolDiCioccio/Rake.git"
@@ -20,7 +22,7 @@ const t = useTranslations(lang);
       referrerpolicy="no-referrer"
     >
       <Icon
-        class="ml-3 mr-3 select-none text-center text-black transition-transform text-2xl hover:scale-125"
+        class="ml-3 mr-3 select-none rounded-full bg-white text-center transition-transform text-2xl hover:scale-125"
         name="logos:github-icon"
       /></a
     >
@@ -53,7 +55,7 @@ const t = useTranslations(lang);
     >
   </div>
   <br />
-  <h2 class="text-center font-bold text-black">{t("footer.OurTechStack")}:</h2>
+  <h2 class="text-center font-bold">{t("footer.OurTechStack")}:</h2>
   <div class="mt-6 flex flex-row items-center justify-center">
     <a href="https://astro.build" target="_blank" referrerpolicy="no-referrer">
       <Icon
@@ -94,5 +96,5 @@ const t = useTranslations(lang);
       >Privacy Policy</a
     >.
   </h3>
-  <br>
-</div>
+  <br />
+</footer>

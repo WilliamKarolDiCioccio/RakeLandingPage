@@ -1,11 +1,18 @@
 ---
 import NoOuterBody from "../../layouts/no-outer-body.astro";
 import ScrollProgressBar from "../../components/scroll-progress-bar.astro";
+import ThemeToggle from "../../components/theme-toggle.astro";
 ---
 
 <style scoped>
   body {
     margin: 25px;
+  }
+
+  h1 {
+    margin-top: 40px;
+    font-size: xx-large;
+    font-weight: bold;
   }
 
   h2 {
@@ -24,8 +31,12 @@ import ScrollProgressBar from "../../components/scroll-progress-bar.astro";
 
 <NoOuterBody pageTitle={"Privacy Policy"} pageDescription={""}>
   <ScrollProgressBar />
-  
+
   <h1>Privacy Policy</h1>
+
+  <br />
+  <ThemeToggle />
+  <br />
 
   <p><strong>Introduction</strong></p>
 
