@@ -24,7 +24,14 @@ const t = useTranslations(lang);
   <div class="container mx-auto flex items-center justify-between px-4">
     <!-- Logo and Website Name -->
     <div class="flex items-center transition-transform hover:scale-110">
-      <Image class="mr-2 h-16 w-16 md:h-32 md:w-32" src={RakeLogo} alt="" />
+      <div class="h-16 w-16 md:h-32 md:w-32">
+        <Image
+          src={RakeLogo}
+          width={RakeLogo.width / 8}
+          densities={[1.5, 2]}
+          alt="Rake Engine Logo"
+        />
+      </div>
       <a
         class="hide-on-small ml-2 font-bold text-black text-lg md:text-4xl"
         href="https://rake-engine.netlify.app">Rake Engine</a
@@ -37,10 +44,7 @@ const t = useTranslations(lang);
         class="flex transform flex-row items-center text-red-400 transition-transform text-sm hover:scale-110 hover:font-bold hover:text-red-600 hover:underline md:text-lg"
         target="_blank"
       >
-        {t("nav.Docs")}<Icon
-          class="m-auto select-none"
-          name="mdi:book"
-        /></a
+        {t("nav.Docs")}<Icon class="m-auto select-none" name="mdi:book" /></a
       >
       <a
         href="https://rake-engine-docs.netlify.app/api-reference"

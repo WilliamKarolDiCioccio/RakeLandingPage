@@ -15,8 +15,10 @@ const t = useTranslations(lang);
 >
   <div class="m-12">
     <Image
-      class="w-full aspect-video select-none rounded-xl shadow-xl transition-transform hover:scale-105 hover:shadow-2xl md:h-96"
+      class="aspect-video select-none rounded-xl shadow-xl transition-transform hover:scale-105 hover:shadow-2xl"
       src={RakeScreenshot}
+      width={RakeScreenshot.width / 2}
+      densities={[1.5, 2]}
       alt="screenshot"
     />
     <p class="mt-6 text-center italic text-gray-400">
