@@ -33,6 +33,7 @@
     "@iconify-json/mdi": "^1.1.64",
     "@iconify/json": "^2.2.182",
     "@iconify/utils": "^2.1.22",
+    "astro-compress": "^2.2.10",
     "astro-meta-tags": "^0.2.1",
     "iconify": "^1.4.0",
     "micromodal": "^0.4.10",
