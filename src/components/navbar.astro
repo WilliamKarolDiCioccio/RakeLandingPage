@@ -43,19 +43,20 @@ const t = useTranslations(lang);
         href="https://rake-engine-docs.netlify.app/docs"
         class="flex transform flex-row items-center text-red-400 transition-transform text-sm hover:scale-110 hover:font-bold hover:text-red-600 hover:underline md:text-lg"
         target="_blank"
+        aria-label={t('nav.Docs')}
       >
-        {t("nav.Docs")}<Icon class="m-auto select-none" name="mdi:book" /></a
-      >
+        {t("nav.Docs")}
+        <Icon class="m-auto select-none" name="mdi:book" />
+      </a>
       <a
         href="https://rake-engine-docs.netlify.app/api-reference"
         class="flex transform flex-row items-center text-red-400 transition-transform text-sm hover:scale-110 hover:font-bold hover:text-red-600 hover:underline md:text-lg"
         target="_blank"
+        aria-label={t('nav.APIReference')}
       >
-        {t("nav.APIReference")}<Icon
-          class="m-auto select-none"
-          name="mdi:code"
-        /></a
-      >
+        {t("nav.APIReference")}
+        <Icon class="m-auto select-none" name="mdi:code" />
+      </a>
     </div>
   </div>
 </nav>
