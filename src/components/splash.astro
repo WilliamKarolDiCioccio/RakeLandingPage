@@ -14,13 +14,25 @@ const t = useTranslations(lang);
   data-aos-delay="250"
 >
   <div class="m-12">
-    <Image
-      class="aspect-video select-none rounded-xl shadow-xl transition-transform hover:scale-105 hover:shadow-2xl"
-      src={RakeScreenshot}
-      width={RakeScreenshot.width / 2}
-      densities={[1.5, 2]}
-      alt="screenshot"
-    />
+    <div
+      id="fullscreen-image-container"
+      class="relative shadow-xl transition-transform hover:scale-105 hover:shadow-2xl"
+    >
+      <Image
+        class="aspect-video select-none rounded-xl"
+        src={RakeScreenshot}
+        width={RakeScreenshot.width / 2}
+        densities={[1.5, 2]}
+        alt="screenshot"
+      />
+      <button
+        id="fullscreen-button"
+        class="text-md absolute bottom-0 right-0 flex flex-row items-center rounded-br-xl rounded-tl-xl bg-black bg-opacity-50 text-white"
+      >
+        <span class="ml-3 mr-1">{t("splash.Fullscreen")}</span>
+        <Icon class="ml-1 mr-1 select-none" name="mdi:fullscreen" />
+      </button>
+    </div>
     <p class="mt-6 text-center italic text-gray-400">
       A screenshot of a test scene from Rake Engine
     </p>
@@ -29,7 +41,7 @@ const t = useTranslations(lang);
     href="https://github.com/WilliamKarolDiCioccio/Rake/releases"
     target="_blank"
     referrerpolicy="no-referrer"
-    aria-label={t('splash.Download')}
+    aria-label={t("splash.Download")}
   >
     <button
       class="flex h-12 flex-row items-center rounded-lg bg-gradient-to-t from-red-500 to-orange-500 text-white shadow-lg shadow-orange-500/50 transition-transform text-lg hover:scale-110"
@@ -47,7 +59,7 @@ const t = useTranslations(lang);
     href="https://github.com/WilliamKarolDiCioccio/Rake.git"
     target="_blank"
     referrerpolicy="no-referrer"
-    aria-label={t('splash.CloneSource')}
+    aria-label={t("splash.CloneSource")}
   >
     <button
       class="flex h-12 flex-row items-center rounded-lg bg-gradient-to-t from-blue-500 to-cyan-500 text-white shadow-lg shadow-cyan-500/50 transition-transform text-lg hover:scale-110"
@@ -61,3 +73,34 @@ const t = useTranslations(lang);
     </button>
   </a>
 </div>
+
+<script lang="ts" is:inline>
+  const fullscreenButton = document.getElementById("fullscreen-button");
+  const imageContainer = document.getElementById("fullscreen-image-container");
+
+  console.log(fullscreenButton);
+
+  fullscreenButton.addEventListener("click", () => {
+    if (imageContainer.requestFullscreen) {
+      imageContainer.requestFullscreen();
+    } else if (imageContainer.webkitRequestFullscreen) {
+      imageContainer.webkitRequestFullscreen();
+    } else if (imageContainer.msRequestFullscreen) {
+      imageContainer.msRequestFullscreen();
+    }
+  });
+
+  document.addEventListener("fullscreenchange", () => {
+    if (document.fullscreenElement === imageContainer) {
+      imageContainer.style.width = "100lvw";
+      imageContainer.style.height = "100lvh";
+      imageContainer.style.overflow = "hidden";
+      imageContainer.style.backgroundSize = "cover";
+    } else {
+      imageContainer.style.width = "";
+      imageContainer.style.height = "";
+      imageContainer.style.overflow = "";
+      imageContainer.style.backgroundSize = "";
+    }
+  });
+</script>

@@ -25,13 +25,13 @@
 
 <progress
   class="scroll-progress fixed left-0 top-0 z-50 h-3 w-lvw bg-transparent"
-  id="scrollProgress"
+  id="scroll-progress"
   value="0"
   max="100"></progress>
 
-<script lang="ts">
+<script lang="ts" is:inline>
   window.addEventListener("scroll", () => {
-    const element = document.getElementById("scrollProgress");
+    const element = document.getElementById("scroll-progress");
     if (element) {
       const scrollPercent =
         (window.scrollY /
