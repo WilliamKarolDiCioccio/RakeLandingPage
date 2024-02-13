@@ -1,0 +1,47 @@
+---
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<div class="flex flex-row items-center">
+  <h2 class="mr-1 text-center font-bold">{t("footer.DarkTheme")}:</h2>
+  <input id="theme-toggle" class="ml-1" type="checkbox" />
+</div>
+
+<script lang="ts" is:inline>
+  const themeToggle = document.getElementById("theme-toggle");
+
+  const setTheme = (theme) => {
+    const element = document.documentElement;
+    element.classList.toggle("dark", theme === "dark");
+    localStorage.setItem("theme", theme);
+  };
+
+  const toggleTheme = () => {
+    const isDark = themeToggle.checked;
+    setTheme(isDark ? "dark" : "light");
+  };
+
+  themeToggle.addEventListener("change", toggleTheme);
+
+  const initializeTheme = () => {
+    const storedTheme = localStorage.getItem("theme");
+    if (storedTheme) {
+      setTheme(storedTheme);
+      themeToggle.checked = storedTheme === "dark";
+    } else if (
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+    ) {
+      setTheme("dark");
+      themeToggle.checked = true;
+    } else {
+      setTheme("light");
+      themeToggle.checked = false;
+    }
+  };
+
+  initializeTheme();
+</script>
