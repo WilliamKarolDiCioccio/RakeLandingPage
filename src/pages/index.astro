@@ -1,1 +1,21 @@
-<meta http-equiv="refresh" content="0;url=/en/" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Language Redirect</title>
+<script>
+  let lang = window.navigator.language;
+  if (lang.startsWith("it")) {
+    window.location.replace("/it");
+  } else if (lang.startsWith("fr")) {
+    window.location.replace("/fr");
+  } else {
+    window.location.replace("/en");
+  }
+</script>
+</head>
+<body>
+</body>
+</html>
