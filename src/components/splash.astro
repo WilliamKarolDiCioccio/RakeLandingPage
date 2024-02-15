@@ -75,6 +75,23 @@ const t = useTranslations(lang);
 </div>
 
 <script lang="ts" is:inline>
+  const downloadButton = document.getElementById("download-button");
+  const cloneSourceButton = document.getElementById("clone-source-button");
+
+  downloadButton.addEventListener("click", () => {
+    gtag("event", "download_button_click", {
+      event_category: "Button Click",
+      event_label: "Download Button Clicked",
+    });
+  });
+
+  cloneSourceButton.addEventListener("click", () => {
+    gtag("event", "clone_source_button_click", {
+      event_category: "Button Click",
+      event_label: "Clone Source Button Clicked",
+    });
+  });
+
   const fullscreenButton = document.getElementById("fullscreen-button");
   const imageContainer = document.getElementById("fullscreen-image-container");
 

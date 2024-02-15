@@ -40,6 +40,7 @@ const t = useTranslations(lang);
     <!-- Links -->
     <div class="flex items-center space-x-4">
       <a
+        id="rake-docs-link"
         href="https://docs-rake-engine.netlify.app"
         class="flex transform flex-row items-center text-red-400 transition-transform text-sm hover:scale-110 hover:font-bold hover:text-red-600 hover:underline md:text-lg"
         target="_blank"
@@ -49,6 +50,7 @@ const t = useTranslations(lang);
         <Icon class="m-auto select-none" name="mdi:book" />
       </a>
       <a
+        id="rake-reference-link"
         href="https://drive.google.com/drive/folders/1cFaisr8z-7TKOAejPI-E_JsvL2AZ2EEK?usp=drive_link"
         class="flex transform flex-row items-center text-red-400 transition-transform text-sm hover:scale-110 hover:font-bold hover:text-red-600 hover:underline md:text-lg"
         target="_blank"
@@ -60,3 +62,22 @@ const t = useTranslations(lang);
     </div>
   </div>
 </nav>
+
+<script lang="ts" is:inline>
+  const docsLink = document.getElementById("rake-docs-link");
+  const referenceLink = document.getElementById("rake-reference-link");
+
+  docsLink.addEventListener("click", () => {
+    gtag("event", "rake_docs_link_click", {
+      event_category: "Link Click",
+      event_label: "Rake Docs Link Clicked",
+    });
+  });
+
+  referenceLink.addEventListener("click", () => {
+    gtag("event", "rake_reference_link_click", {
+      event_category: "Link Click",
+      event_label: "Rake Reference Link Clicked",
+    });
+  });
+</script>
