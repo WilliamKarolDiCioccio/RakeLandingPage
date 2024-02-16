@@ -1,7 +1,7 @@
 export const languages = {
-  en: "English",
-  it: "Italiano",
-  fr: "Français",
+  en: "EN",
+  it: "IT",
+  fr: "FR",
 };
 
 export const defaultLang = "en";
@@ -11,11 +11,13 @@ export const ui = {
   en: {
     "common.Available": "Available",
     "common.Unavailable": "Unavailable",
+    "common.Subscribe": "Subscribe",
     "nav.Docs": "Docs",
     "nav.APIReference": "API Reference",
     "splash.Fullscreen": "Fullscreen",
     "splash.Download": "Download",
     "splash.CloneSource": "Clone Source",
+    "footer.SubscribeToNewsletter": "Subscribe To Newsletter",
     "footer.ChooseLanguage": "Choose Language",
     "footer.DarkTheme": "Dark Theme",
     "footer.ConnectWithUs": "Connect With Us",
@@ -24,11 +26,13 @@ export const ui = {
   it: {
     "common.Available": "Disponibile",
     "common.Unavailable": "Non Disponibile",
+    "common.Subscribe": "Iscriviti",
     "nav.Docs": "Doumentazione",
     "nav.APIReference": "Riferimenti API",
     "splash.Fullscreen": "Schermo Intero",
     "splash.Download": "Scarica",
     "splash.CloneSource": "Clona Codice",
+    "footer.SubscribeToNewsletter": "Iscriviti Alla Newsletter",
     "footer.ChooseLanguage": "Selezione Lingua",
     "footer.DarkTheme": "Tema Scuro",
     "footer.ConnectWithUs": "Contattaci",
@@ -37,11 +41,13 @@ export const ui = {
   fr: {
     "common.Available": "Disponible",
     "common.Unavailable": "Indisponible",
+    "common.Subscribe": "S'Abonner",
     "nav.Docs": "Documentation",
     "nav.APIReference": "Référence API",
     "splash.Fullscreen": "Plein Écran",
     "splash.Download": "Télécharger",
     "splash.CloneSource": "Cloner le Code",
+    "footer.SubscribeToNewsletter": "Abonnez-vous à la newsletter",
     "footer.ChooseLanguage": "Choisir la Langue",
     "footer.DarkTheme": "Thème sombre",
     "footer.ConnectWithUs": "Nous Contacter",

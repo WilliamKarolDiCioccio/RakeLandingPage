@@ -8,22 +8,14 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<style>
-  @media (max-width: 768px) {
-    .hide-on-small {
-      display: none;
-    }
-  }
-</style>
-
 <nav
-  class="fixed left-0 top-0 z-50 h-24 w-lvw py-4 shadow-md backdrop-blur-md md:h-44"
+  class="fixed left-0 top-0 z-50 w-lvw py-4 shadow-md backdrop-blur-md"
   data-aos="fade-up"
   data-aos-delay="0"
 >
-  <div class="container mx-auto flex items-center justify-between px-4">
+  <div class="container mx-auto flex flex-col items-center justify-between px-4">
     <!-- Logo and Website Name -->
-    <div class="flex items-center transition-transform hover:scale-110">
+    <div class="flex flex-row items-center transition-transform hover:scale-110">
       <div class="h-16 w-16 md:h-32 md:w-32">
         <Image
           src={RakeLogo}
@@ -38,7 +30,7 @@ const t = useTranslations(lang);
       >
     </div>
     <!-- Links -->
-    <div class="flex items-center space-x-4">
+    <div class="flex flex-row items-center space-x-4">
       <a
         id="rake-docs-link"
         href="https://docs-rake-engine.netlify.app"
