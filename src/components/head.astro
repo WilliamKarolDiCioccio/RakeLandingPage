@@ -1,15 +1,19 @@
 ---
-import '../styles/global.css';
+import "../styles/global.css";
 
 interface Props {
-	title: string;
-	description: string;
-	image?: string;
+  title: string;
+  description: string;
+  image?: string;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image = '/opengraph-placeholder.jpg' } = Astro.props;
+const {
+  title,
+  description,
+  image = "/opengraph-placeholder.jpg",
+} = Astro.props;
 ---
 
 <!-- Global Metadata -->
@@ -19,9 +23,27 @@ const { title, description, image = '/opengraph-placeholder.jpg' } = Astro.props
 <meta name="generator" content={Astro.generator} />
 
 <!-- Font preloads -->
-<link rel="preload" href="/fonts/Roboto-Regular.woff" as="font" type="font/woff" crossorigin />
-<link rel="preload" href="/fonts/Roboto-Bold.woff" as="font" type="font/woff" crossorigin />
-<link rel="preload" href="/fonts/Roboto-Italic.woff" as="font" type="font/woff" crossorigin />
+<link
+  rel="preload"
+  href="/fonts/Roboto-Regular.woff"
+  as="font"
+  type="font/woff"
+  crossorigin
+/>
+<link
+  rel="preload"
+  href="/fonts/Roboto-Bold.woff"
+  as="font"
+  type="font/woff"
+  crossorigin
+/>
+<link
+  rel="preload"
+  href="/fonts/Roboto-Italic.woff"
+  as="font"
+  type="font/woff"
+  crossorigin
+/>
 
 <!-- Animate On Scroll -->
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -48,12 +70,33 @@ const { title, description, image = '/opengraph-placeholder.jpg' } = Astro.props
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
-<!-- Google tag (gtag.js) -->
-<script type="text/partytown" src="https://www.googletagmanager.com/gtag/js?id=G-GCN8Z2LHMH"></script>
+<!-- Google Analytics -->
+<script
+  lang="js"
+  type="text/partytown"
+  src="https://www.googletagmanager.com/gtag/js?id=G-GCN8Z2LHMH"></script>
 <script type="text/partytown">
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
 
-  gtag('config', 'G-GCN8Z2LHMH');
+  gtag("config", "G-GCN8Z2LHMH");
 </script>
+<!-- End Google Analytics -->
+
+<!-- Google Tag Manager -->
+<script lang="js">
+  (function (w, d, s, l, i) {
+    w[l] = w[l] || [];
+    w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+    var f = d.getElementsByTagName(s)[0],
+      j = d.createElement(s),
+      dl = l != "dataLayer" ? "&l=" + l : "";
+    j.async = true;
+    j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+    f.parentNode.insertBefore(j, f);
+  })(window, document, "script", "dataLayer", "GTM-P4MKXRZN");
+</script>
+<!-- End Google Tag Manager -->
