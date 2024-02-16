@@ -62,22 +62,3 @@ const t = useTranslations(lang);
     </div>
   </div>
 </nav>
-
-<script lang="ts" is:inline>
-  const docsLink = document.getElementById("rake-docs-link");
-  const referenceLink = document.getElementById("rake-reference-link");
-
-  docsLink.addEventListener("click", () => {
-    gtag("event", "rake_docs_link_click", {
-      event_category: "Link Click",
-      event_label: "Rake Docs Link Clicked",
-    });
-  });
-
-  referenceLink.addEventListener("click", () => {
-    gtag("event", "rake_reference_link_click", {
-      event_category: "Link Click",
-      event_label: "Rake Reference Link Clicked",
-    });
-  });
-</script>
