@@ -8,12 +8,127 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
+<style scoped>
+  body {
+    background: #333;
+  }
+
+  *,
+  *:before,
+  *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  .mouse_scroll {
+    display: block;
+    margin: 0 auto;
+    width: 24px;
+    height: 100px;
+  }
+
+  .m_scroll_arrows {
+    display: block;
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    border-right: 2px solid white;
+    border-bottom: 2px solid white;
+    margin: 0 0 3px 4px;
+    width: 16px;
+    height: 16px;
+  }
+
+  .one,
+  .two,
+  .three {
+    -webkit-animation: mouse-scroll 1s infinite;
+    -moz-animation: mouse-scroll 1s infinite;
+    animation: mouse-scroll 1s infinite;
+  }
+
+  .one {
+    margin-top: 1px;
+    -webkit-animation-delay: 0.1s;
+    -moz-animation-delay: 0.1s;
+    -webkit-animation-direction: alternate;
+    animation-direction: alternate;
+  }
+
+  .two {
+    -webkit-animation-delay: 0.2s;
+    -moz-animation-delay: 0.2s;
+    -webkit-animation-direction: alternate;
+    animation-delay: 0.2s;
+    animation-direction: alternate;
+    margin-top: -6px;
+  }
+
+  .three {
+    -webkit-animation-delay: 0.3s;
+    -moz-animation-delay: 0.3s;
+    -webkit-animation-direction: alternate;
+    animation-delay: 0.3s;
+    animation-direction: alternate;
+    margin-top: -6px;
+  }
+
+  @-webkit-keyframes mouse-scroll {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @-moz-keyframes mouse-scroll {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @-o-keyframes mouse-scroll {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes mouse-scroll {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+</style>
+
 <div
-  class="w-lvh mt-4 flex flex-col items-center md:mt-8"
+  class="w-lvh flex flex-col items-center"
   data-aos="fade-up"
   data-aos-delay="250"
 >
-  <div class="m-12">
+  <div class="m-6">
     <div
       id="fullscreen-image-container"
       class="relative shadow-xl transition-transform hover:scale-105 hover:shadow-2xl"
@@ -33,9 +148,6 @@ const t = useTranslations(lang);
         <Icon class="ml-1 mr-1 select-none" name="mdi:fullscreen" />
       </button>
     </div>
-    <p class="mt-6 text-center italic text-gray-400">
-      A screenshot of a test scene from Rake Engine
-    </p>
   </div>
   <a
     href="https://github.com/WilliamKarolDiCioccio/Rake/releases"
@@ -44,6 +156,7 @@ const t = useTranslations(lang);
     aria-label={t("splash.Download")}
   >
     <button
+      id="download-rake-button"
       class="flex h-12 flex-row items-center rounded-lg bg-gradient-to-t from-red-500 to-orange-500 text-white shadow-lg shadow-orange-500/50 transition-transform text-lg hover:scale-110"
     >
       <span class="ml-3 mr-1">{t("splash.Download")}</span>
@@ -62,6 +175,7 @@ const t = useTranslations(lang);
     aria-label={t("splash.CloneSource")}
   >
     <button
+      id="clone-rake-button"
       class="flex h-12 flex-row items-center rounded-lg bg-gradient-to-t from-blue-500 to-cyan-500 text-white shadow-lg shadow-cyan-500/50 transition-transform text-lg hover:scale-110"
     >
       <span class="ml-3 mr-1">{t("splash.CloneSource")}</span>
@@ -72,26 +186,17 @@ const t = useTranslations(lang);
       >
     </button>
   </a>
+  <br />
+  <div class="mouse_scroll">
+    <div>
+      <span class="m_scroll_arrows one"></span>
+      <span class="m_scroll_arrows two"></span>
+      <span class="m_scroll_arrows three"></span>
+    </div>
+  </div>
 </div>
 
 <script lang="ts" is:inline>
-  const downloadButton = document.getElementById("download-button");
-  const cloneSourceButton = document.getElementById("clone-source-button");
-
-  downloadButton.addEventListener("click", () => {
-    gtag("event", "download_button_click", {
-      event_category: "Button Click",
-      event_label: "Download Button Clicked",
-    });
-  });
-
-  cloneSourceButton.addEventListener("click", () => {
-    gtag("event", "clone_source_button_click", {
-      event_category: "Button Click",
-      event_label: "Clone Source Button Clicked",
-    });
-  });
-
   const fullscreenButton = document.getElementById("fullscreen-button");
   const imageContainer = document.getElementById("fullscreen-image-container");
 
