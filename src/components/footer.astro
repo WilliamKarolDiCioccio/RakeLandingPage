@@ -12,18 +12,28 @@ const t = useTranslations(lang);
   <br />
   <h2 class="text-center font-bold">{t("footer.SubscribeToNewsletter")}:</h2>
   <div class="mt-6 flex flex-row items-center justify-center">
-    <input
-      id="newsletter-field"
-      type="email"
-      placeholder="example@example.com"
-      class="rounded-l-lg border border-red-400 p-2 transition-colors duration-300 ease-in-out focus:border-red-600"
-    />
-    <button
-      id="newsletter-submit-button"
-      class="rounded-r-lg border border-red-400 bg-red-400 px-4 py-2 text-white transition-colors duration-300 ease-in-out hover:bg-red-600"
-      >{t("common.Subscribe")}</button
+    <form
+      name="submit-to-google-sheet"
+      class="rounded-lg border border-red-400 bg-white text-black"
     >
+      <input
+        id="newsletter-field"
+        type="email"
+        name="Email"
+        placeholder="example@example.com"
+        class="rounded-l-lg p-2 transition-colors duration-300 ease-in-out"
+        required
+      />
+      <button
+        id="newsletter-submit-button"
+        type="submit"
+        class="rounded-r-lg bg-red-400 p-2 py-2 text-white transition-colors duration-300 ease-in-out hover:bg-red-600"
+        >{t("common.Subscribe")}</button
+      >
+    </form>
   </div>
+  <span id="success-submission-response-msg" class="text-green-600"></span>
+  <span id="failure-submission-response-msg" class="red-green-600"></span>
   <br />
   <div class="flex flex-row items-center justify-center">
     <LanguagePicker />
@@ -114,3 +124,24 @@ const t = useTranslations(lang);
   </h3>
   <br />
 </footer>
+
+<script lang="ts" is:inline>
+  const scriptURL =
+    "https://script.google.com/macros/s/AKfycbx2F7IQEGlOwEgu5FnqMrJP7X11gIshpEdm-uhXJjsl5OPyeVK2DuUATTl9RA0tY2UUyA/exec";
+  const form = document.forms["submit-to-google-sheet"];
+  const successMsg = document.getElementById("success-submission-response-msg");
+  const failureMsg = document.getElementById("failure-submission-response-msg");
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    fetch(scriptURL, { method: "POST", body: new FormData(form) })
+      .then((response) => {
+        successMsg.innerHTML = "Thank you for subscribing!";
+        console.log("Success!", response);
+      })
+      .catch((error) => {
+        failureMsg.innerHTML = "Something went wrong!";
+        console.error("Error!", error.message);
+      });
+  });
+</script>
