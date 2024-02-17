@@ -1,7 +1,7 @@
 export const languages = {
   en: "EN",
-  it: "IT",
   fr: "FR",
+  it: "IT",
 };
 
 export const defaultLang = "en";
@@ -24,6 +24,22 @@ export const ui = {
     "footer.ConnectWithUs": "Connect With Us",
     "footer.OurTechStack": "Our Tech Stack",
   },
+  fr: {
+    "common.Available": "Disponible",
+    "common.Unavailable": "Indisponible",
+    "common.Subscribe": "S'Abonner",
+    "nav.Docs": "Documentation",
+    "nav.APIReference": "Référence API",
+    "splash.Fullscreen": "Plein Écran",
+    "splash.Download": "Télécharger",
+    "splash.CloneSource": "Cloner le Code",
+    "splash.Collaborate": "Collaborer",
+    "footer.SubscribeToNewsletter": "Abonnez-vous à la newsletter",
+    "footer.ChooseLanguage": "Choisir la Langue",
+    "footer.DarkTheme": "Thème sombre",
+    "footer.ConnectWithUs": "Nous Contacter",
+    "footer.OurTechStack": "Notre Tech Stack",
+  },
   it: {
     "common.Available": "Disponibile",
     "common.Unavailable": "Non Disponibile",
@@ -39,21 +55,6 @@ export const ui = {
     "footer.DarkTheme": "Tema Scuro",
     "footer.ConnectWithUs": "Contattaci",
     "footer.OurTechStack": "Il Nostro Tech Stack",
-  },
-  fr: {
-    "common.Available": "Disponible",
-    "common.Unavailable": "Indisponible",
-    "common.Subscribe": "S'Abonner",
-    "nav.Docs": "Documentation",
-    "nav.APIReference": "Référence API",
-    "splash.Fullscreen": "Plein Écran",
-    "splash.Download": "Télécharger",
-    "splash.CloneSource": "Cloner le Code",
-    "footer.SubscribeToNewsletter": "Abonnez-vous à la newsletter",
-    "footer.ChooseLanguage": "Choisir la Langue",
-    "footer.DarkTheme": "Thème sombre",
-    "footer.ConnectWithUs": "Nous Contacter",
-    "footer.OurTechStack": "Notre Tech Stack",
   },
 };
 
